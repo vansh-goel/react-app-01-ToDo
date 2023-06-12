@@ -2,34 +2,39 @@ import React from 'react'
 import { useState } from 'react'
 
 const Content = () => {
-  const [name, setName] = useState('Dave');
-
-    const handleName = () => {
-        const names = ["James", "Jonathan", "Jack"]
-        const int = Math.floor(Math.random() * 3);
-        setName(names[int]);
-      }
-    
-    
-      const handleClick = () => {
-        alert("You clicked it");
-      }
-
-      const handleClick2 = (eventH) => {
-        console.log(eventH);
-      }
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      checked: false,
+      name : "Cocoa Almonds" 
+    },
+    {
+      id: 2,
+      checked : false,
+      name : "Bread"
+    },
+    {
+      id: 3,
+      checked : false,
+      name : "Chips"
+    }
+  ]);
     
       return (
         <main>
-              <p>
-                Hello World!
-                <br/>
-                Also Hello {name}!
-                <br/>
-              <button onClick={ handleClick }>Click here</button> 
-              <button onClick={ handleName }>Change Name</button> 
-              </p>
-          </main>
+          <ul className='item-array'>
+            {items.map((item) => (
+              <li className="item">
+                <input
+                  type = "checkbox"
+                  checked = {item.checked}
+                />
+                <label>{item.name}</label>
+                <button>Delete</button>
+              </li>
+            ))}
+          </ul>
+        </main>
         )
     }
 export default Content
