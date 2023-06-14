@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { FaTrash } from 'react-icons/fa'
 
+
 const Content = () => {
   const [items, setItems] = useState([
     {
@@ -20,23 +21,29 @@ const Content = () => {
       name : "Chips"
     }
   ]);
-
+  
   const handleCheck = (id) => {
     const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked} : item)
     setItems(listItems)
     localStorage.setItem('shoppinglist', JSON.stringify(listItems));
   }
-
+  
   const handleDelete = (id) => {
-    const updatedItems = items.filter( item => item.id != id )
-    setItems(updatedItems)
+    setRemovedItemId(id)
+    setTimeout(() => {
+      const updatedItems = items.filter(item => item.id !== id);
+      setItems(updatedItems);
+    }, 300);
   }
-
+  
+  const [removedItemId, setRemovedItemId] = useState(null);
       return (
         <main>
           <ul className='item-array'>
             {items.map((item) => (
-              <li className="item" key={item.id}>
+              <li className="item" key={item.id}
+              className={removedItemId === item.id ? 'item item-removed' : 'item'}
+              >
                 <input
                   type = "checkbox"
                   onChange={() => handleCheck(item.id)}

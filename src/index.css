@@ -45,3 +45,12 @@ Header {
   padding: 20px;
   background-color: #EEE3CB;
 }
+
+.item {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.item-removed {
+  opacity: 0;
+}
