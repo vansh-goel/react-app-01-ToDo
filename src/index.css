@@ -21,3 +21,27 @@ code {
 #button {
   margin-left : 10px;
 }
+
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  list-style-type: none;
+  background-color: #F5EFE7;
+}
+
+input {
+  width: 30px;
+  height: 30px;
+}
+
+#button {
+  margin-left: auto;
+}
+
+Header {
+  padding: 20px;
+  background-color: #EEE3CB;
+}

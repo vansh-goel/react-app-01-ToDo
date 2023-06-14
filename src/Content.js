@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
-import { FaTrashAlt } from 'react-icons/fa'
+import { FaTrash } from 'react-icons/fa'
 
 const Content = () => {
   const [items, setItems] = useState([
     {
       id: 1,
-      checked: false,
+      checked: true,
       name : "Cocoa Almonds" 
     },
     {
@@ -16,7 +16,7 @@ const Content = () => {
     },
     {
       id: 3,
-      checked : false,
+      checked : true,
       name : "Chips"
     }
   ]);
@@ -25,17 +25,17 @@ const Content = () => {
         <main>
           <ul className='item-array'>
             {items.map((item) => (
-              <li className="item">
+              <li className="item" key={item.id}>
                 <input
                   type = "checkbox"
                   checked = {item.checked}
                 />
-                <label>{item.name}</label>
-                <FaTrashAlt 
-                  id = "button"
-                  role = "button"
-                  tabIndex = "0"
-                />
+                  <label>{item.name}</label>
+                  <FaTrash 
+                    id = "button"
+                    role = "button"
+                    tabIndex = "0"
+                  />
               </li>
             ))}
           </ul>

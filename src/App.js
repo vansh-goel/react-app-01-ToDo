@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Content/>
           <Header/>
+        <Content/>
           <button>Click Here</button>
         <Footer/>
       </header>
