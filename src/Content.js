@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { FaTrash } from 'react-icons/fa'
-
+import Input from './Input'
 
 const Content = () => {
   const [items, setItems] = useState([
@@ -22,6 +22,10 @@ const Content = () => {
     }
   ]);
   
+  const addItem = (newItem) => {
+    setItems([...items, newItem]);
+  };
+
   const handleCheck = (id) => {
     const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked} : item)
     setItems(listItems)
@@ -29,21 +33,22 @@ const Content = () => {
   }
   
   const handleDelete = (id) => {
-    setRemovedItemId(id)
+    setRemoveCheck(id)
     setTimeout(() => {
       const updatedItems = items.filter(item => item.id !== id);
       setItems(updatedItems);
     }, 300);
   }
 
-  const [removedItemId, setRemovedItemId] = useState(null);
+  const [removeCheck, setRemoveCheck] = useState(null);
   
       return (
         <main>
           <ul className='item-array'>
+            <Input addItem={addItem} />
             {items.map((item) => (
               <li key={item.id}
-              className={removedItemId === item.id ? 'item item-removed' : 'item'}
+              className={removeCheck === item.id ? 'item item-removed' : 'item'}
               >
                 <input
                   type = "checkbox"

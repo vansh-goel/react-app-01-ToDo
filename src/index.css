@@ -22,7 +22,7 @@ code {
   margin-left : 10px;
 }
 
-li {
+li, .inp {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,6 +30,15 @@ li {
   align-content: center;
   list-style-type: none;
   background-color: #F5EFE7;
+}
+
+.inp input {
+  width: 100%;
+}
+
+.inp input::placeholder {
+  font-size: 16px;
+  text-align: center;
 }
 
 input {
