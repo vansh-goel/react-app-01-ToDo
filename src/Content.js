@@ -26,6 +26,12 @@ const Content = () => {
     setItems(listItems)
     localStorage.setItem('shoppinglist', JSON.stringify(listItems));
   }
+
+  const handleDelete = (id) => {
+    const updatedItems = items.filter( item => item.id != id )
+    setItems(updatedItems)
+  }
+
       return (
         <main>
           <ul className='item-array'>
@@ -42,7 +48,8 @@ const Content = () => {
                   >
                     {item.checked ? ( '‎ ' + item.name + '‎ ‎ ') : item.name }
                   </label>
-                  <FaTrash 
+                  <FaTrash
+                    onClick={() => handleDelete(item.id)}
                     id = "button"
                     role = "button"
                     tabIndex = "0"
