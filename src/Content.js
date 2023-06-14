@@ -35,13 +35,14 @@ const Content = () => {
       setItems(updatedItems);
     }, 300);
   }
-  
+
   const [removedItemId, setRemovedItemId] = useState(null);
+  
       return (
         <main>
           <ul className='item-array'>
             {items.map((item) => (
-              <li className="item" key={item.id}
+              <li key={item.id}
               className={removedItemId === item.id ? 'item item-removed' : 'item'}
               >
                 <input
