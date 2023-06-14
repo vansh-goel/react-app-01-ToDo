@@ -25,7 +25,7 @@ code {
 li, .inp {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
   list-style-type: none;
@@ -48,6 +48,7 @@ input {
 
 #button {
   margin-left: auto;
+  margin-right: 15px;
 }
 
 Header {

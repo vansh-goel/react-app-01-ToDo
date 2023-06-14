@@ -8,22 +8,30 @@ const Content = () => {
     {
       id: 1,
       checked: false,
-      name : "Cocoa Almonds" 
+      name : "Example" 
     },
-    {
-      id: 2,
-      checked : false,
-      name : "Bread"
-    },
-    {
-      id: 3,
-      checked : false,
-      name : "Chips"
-    }
+    // {
+    //   id: 2,
+    //   checked : false,
+    //   name : "Bread"
+    // },
+    // {
+    //   id: 3,
+    //   checked : false,
+    //   name : "Chips"
+    // }
   ]);
   
+  const [lastItemId, setLastItemId] = useState(3);
+
   const addItem = (newItem) => {
-    setItems([...items, newItem]);
+    const newObject = {
+      id: lastItemId + 1,
+      checked: false,
+      name: newItem
+    }
+    setItems([...items, newObject]);
+    setLastItemId(lastItemId + 1);
   };
 
   const handleCheck = (id) => {
@@ -37,6 +45,7 @@ const Content = () => {
     setTimeout(() => {
       const updatedItems = items.filter(item => item.id !== id);
       setItems(updatedItems);
+      localStorage.setItem('shoppinglist', JSON.stringify(updatedItems));
     }, 300);
   }
 
@@ -45,7 +54,9 @@ const Content = () => {
       return (
         <main>
           <ul className='item-array'>
-            <Input addItem={addItem} />
+            <Input addItem={addItem} 
+              type = "checkbox"
+            />
             {items.map((item) => (
               <li key={item.id}
               className={removeCheck === item.id ? 'item item-removed' : 'item'}
