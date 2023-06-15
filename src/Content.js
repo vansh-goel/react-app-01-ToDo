@@ -40,19 +40,20 @@ const Content = () => {
     localStorage.setItem('shoppinglist', JSON.stringify(listItems));
   }
   
+  const popIt = new Audio("/pop.mp3");
+  
   const handleDelete = (id) => {
-    const popIt = new Audio("/pop.mp3");
+    popIt.play()
     setRemoveCheck(id)
     setTimeout(() => {
       const updatedItems = items.filter(item => item.id !== id);
       setItems(updatedItems);
-      popIt.play()
       localStorage.setItem('shoppinglist', JSON.stringify(updatedItems));
     }, 300);
   }
 
   const [removeCheck, setRemoveCheck] = useState(null);
-  
+
       return (
         <main>
           <ul className='item-array'>
