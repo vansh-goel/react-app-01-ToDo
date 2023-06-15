@@ -41,10 +41,12 @@ const Content = () => {
   }
   
   const handleDelete = (id) => {
+    const popIt = new Audio("/pop.mp3");
     setRemoveCheck(id)
     setTimeout(() => {
       const updatedItems = items.filter(item => item.id !== id);
       setItems(updatedItems);
+      popIt.play()
       localStorage.setItem('shoppinglist', JSON.stringify(updatedItems));
     }, 300);
   }
