@@ -49,6 +49,7 @@ input {
 #button {
   margin-left: auto;
   margin-right: 15px;
+  transition: 0.2s;
 }
 
 Header {
@@ -63,4 +64,19 @@ Header {
 
 .item-removed {
   opacity: 0;
+}
+
+#button:hover {
+  height: 25px;
+  width: 25px;
+  animation: wiggle 0.8s ease-in-out 0.1s;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-10deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(-10deg); }
+  80% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
 }
