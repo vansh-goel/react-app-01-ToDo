@@ -8,7 +8,6 @@ function App() {
       <header className="App-header">
           <Header/>
         <Content/>
-          {/* <button>Click Here</button> */}
         <Footer/>
       </header>
     </div>
