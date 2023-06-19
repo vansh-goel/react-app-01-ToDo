@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { useEffect } from 'react'
 import { FaTrash } from 'react-icons/fa'
 import Input from './Input'
 
@@ -9,19 +10,18 @@ const Content = () => {
       id: 1,
       checked: false,
       name : "Example" 
-    },
-    // {
-    //   id: 2,
-    //   checked : false,
-    //   name : "Bread"
-    // },
-    // {
-    //   id: 3,
-    //   checked : false,
-    //   name : "Chips"
-    // }
+    }
   ]);
   
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem('todolist'));
+    if (storedItems && storedItems.length > 0) {
+      setItems(storedItems);
+      const lastItem = storedItems[storedItems.length - 1];
+      setLastItemId(lastItem.id);
+    }
+  }, []);
+
   const [lastItemId, setLastItemId] = useState(3);
 
   const addItem = (newItem) => {
@@ -30,16 +30,18 @@ const Content = () => {
       checked: false,
       name: newItem
     }
-    setItems([...items, newObject]);
+    const updatedItems = [...items, newObject];
+    setItems(updatedItems)
     setLastItemId(lastItemId + 1);
+    localStorage.setItem('todolist', JSON.stringify(updatedItems));
   };
 
   const handleCheck = (id) => {
-    const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked} : item)
-    setItems(listItems)
-    localStorage.setItem('shoppinglist', JSON.stringify(listItems));
+    const updatedItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked} : item)
+    setItems(updatedItems)
+    localStorage.setItem('todolist', JSON.stringify(updatedItems));
   }
-  
+
   const popIt = new Audio("/pop.mp3");
   
   const handleDelete = (id) => {
@@ -48,8 +50,8 @@ const Content = () => {
     setTimeout(() => {
       const updatedItems = items.filter(item => item.id !== id);
       setItems(updatedItems);
-      localStorage.setItem('shoppinglist', JSON.stringify(updatedItems));
-    }, 300);
+      localStorage.setItem('todolist', JSON.stringify(updatedItems));
+    }, 200);
   }
 
   const [removeCheck, setRemoveCheck] = useState(null);

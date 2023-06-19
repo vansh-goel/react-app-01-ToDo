@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #EEE3CB;
 }
 
 code {
@@ -79,4 +80,8 @@ Header {
   60% { transform: rotate(-10deg); }
   80% { transform: rotate(10deg); }
   100% { transform: rotate(0deg); }
+}
+
+#input-button {
+  border-radius: 10px;
 }
