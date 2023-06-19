@@ -57,6 +57,7 @@ code {
 }
 
 li, .inp {
+  color: (0,0,0,1);
   border-radius: 20px;
   width: 100%;
   display: flex;
