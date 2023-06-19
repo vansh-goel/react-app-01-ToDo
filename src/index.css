@@ -1,3 +1,7 @@
+header {
+  backdrop-filter: blur(10px);
+}
+
 body {
   text-align: center;
   margin: 0;
@@ -6,10 +10,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #EEE3CB;
+  /* background-color: #EEE3CB; */
+  background-image: url('https://media.tenor.com/QwslkIJM87AAAAAM/writing-homework.gif');
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vh;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: -1;
+  overflow-x: hidden;
 }
 
 ul {
+  backdrop-filter: blur(10px);
   padding: 0px;
 }
 
@@ -41,6 +57,7 @@ code {
 }
 
 li, .inp {
+  border-radius: 20px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -48,11 +65,15 @@ li, .inp {
   align-items: center; 
   align-content: center;
   list-style-type: none;
-  background-color: #F5EFE7;
+  background-color: rgb(245, 239, 231, 0.8);
 }
 
 .inp input {
   width: 100%;
+}
+
+.inp {
+  border-radius: 20px;
 }
 
 .inp input::placeholder {
@@ -71,9 +92,20 @@ input {
   transition: 0.2s;
 }
 
+Header h1 {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: rgb(245, 239, 231);
+  background-color: rgb(0, 0, 0, 0.8);
+  width: fit-content;
+}
+
 Header {
+  min-height: min-content;
   padding: 20px;
-  background-color: #EEE3CB;
+  background-color: rgb(245, 239, 231, 0);
 }
 
 .item {
@@ -100,6 +132,18 @@ Header {
   100% { transform: rotate(0deg); }
 }
 
+footer {
+  color: white;
+  font-size: 10px;
+  opacity: 0;
+}
+
 #input-button {
   border-radius: 10px;
+}
+
+@media screen and (max-width: 1800px) {
+  body {
+    width: 100vw;
+  }
 }
