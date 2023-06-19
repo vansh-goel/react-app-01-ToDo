@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const bgMusic = new Audio('/bgMusic.mp3') 
+bgMusic.loop = true
 const Input = ({ addItem }) => {
   const [newItem, setNewItem] = useState('');
 
@@ -11,6 +13,7 @@ const Input = ({ addItem }) => {
   };
 
   const handleKeyDown = (e) => {
+    bgMusic.play()
     if (e.key === 'Enter') {
         handleAddItem()
     }
