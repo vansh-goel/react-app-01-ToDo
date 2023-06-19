@@ -9,14 +9,31 @@ body {
   background-color: #EEE3CB;
 }
 
+ul {
+  padding: 0px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
+.content {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.item-array {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .item-array *:not(#button) {
+  max-width: 90%;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 10px;
 }
 
 #button {
@@ -24,10 +41,11 @@ code {
 }
 
 li, .inp {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: center; 
   align-content: center;
   list-style-type: none;
   background-color: #F5EFE7;
